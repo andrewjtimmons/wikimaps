@@ -134,10 +134,10 @@ $(document).ready(function () {
 						// }
 	  				});
 					});
-	      	marker.set("id", -InfoWindowCount)
+	      	//marker.set("id", -InfoWindowCount)
 	      	marker.setMap(map);
-	      	markerIcons.push(marker)
-	      	InfoWindowCount += 1
+	      	//markerIcons.push(marker)
+	      	//InfoWindowCount += 1
 	      //}
 	    });
 	  },"xml");
