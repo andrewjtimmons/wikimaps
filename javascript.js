@@ -84,6 +84,9 @@ $(document).ready(function () {
 		    		icon: new google.maps.MarkerImage(
 		    			"assets/img/MapMarkerHQ.png",
 		    			new google.maps.Size(20, 32)
+      			  new google.maps.Point(0,0), // offset within the scaled sprite
+     		 		  new google.maps.Point(0,0), // anchor point is half of the desired size
+ 					    new google.maps.Size(20,32) // s
 	    			)
 		    	});
 
