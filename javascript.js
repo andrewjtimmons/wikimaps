@@ -70,6 +70,7 @@ $(document).ready(function () {
 	function writeMarker() {
 		c =  map.getCenter();
 	 	var lat = map.getCenter().k;
+	 	console.log(lat)
 	 	var lng = map.getCenter().B;
 	 	var url = 'http://api.geonames.org/findNearbyWikipedia?lat='+lat+'&lng='+lng+'&maxRows=10&username=andyjt';
 	  $.get(url, function (data) {
