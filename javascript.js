@@ -86,7 +86,7 @@ $(document).ready(function () {
 		    			new google.maps.Size(40, 64),
       			  new google.maps.Point(0,0), // offset within the scaled sprite
      		 		  new google.maps.Point(0,0), // anchor point is half of the desired size
- 					    new google.maps.Size(20,32) // s
+ 					    new google.maps.Size(40,64) // s
 	    			)
 		    	});
 
