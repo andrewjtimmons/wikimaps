@@ -100,7 +100,7 @@ $(document).ready(function () {
 
 					google.maps.event.addListener(marker, 'click', function() {
 						if (currentInfoWindow) currentInfoWindow.close();
-						infowindow.maxWidth=window.innerWidth*.85;
+						infowindow.maxWidth=window.innerWidth*.80;
 						infowindow.open(map,marker);
 						currentInfoWindow = infowindow;
 					});
