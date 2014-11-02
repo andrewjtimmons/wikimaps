@@ -102,7 +102,7 @@ $(document).ready(function () {
 	    //iterate through the data
 	    $(data).find("entry").each(function(){
 	    	//check to see if the marker was already made
-	    	if (checkMarkers($(this).find("title").text()) === false) {
+	    	//if (checkMarkers($(this).find("title").text()) === false) {
 	      	var marker = new google.maps.Marker({
 	      		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
 	      	});
@@ -138,7 +138,7 @@ $(document).ready(function () {
 	      	marker.setMap(map);
 	      	markerIcons.push(marker)
 	      	InfoWindowCount += 1
-	      }
+	      //}
 	    });
 	  },"xml");
 	}
