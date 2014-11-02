@@ -77,16 +77,9 @@ $(document).ready(function () {
 		    $(data).find("entry").each(function(){
 		    	var marker = new google.maps.Marker({
 		    		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
-		    		// icon: new google.maps.MarkerImage(
-		    		// 	"assets/img/MapMarkerHQ.png",
-		    		// 	new google.maps.Size(207, 358),
-      		// 	  new google.maps.Point(0,0), // offset within the scaled sprite
-     		 // 		  new google.maps.Point(0,0), // anchor point is half of the desired size
- 					  //   new google.maps.Size(20,32) // s
-	    			// )
 		    	});
 
-		  		marker.setIcon("assets/img/MapMarker.png"); 
+		  		marker.setIcon("assets/img/MapMarkerHQ.png"); 
 		    	var infowindow = new google.maps.InfoWindow({
 						maxWidth: infoWidth,
 						content:'<div id="content">'+
