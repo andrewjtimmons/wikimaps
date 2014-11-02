@@ -73,13 +73,18 @@ $(document).ready(function () {
 		 	var lat = c.k;
 		 	var lng = c.B;
 		 	var url = 'http://api.geonames.org/findNearbyWikipedia?lat='+lat+'&lng='+lng+'&maxRows=10&username=andyjt';
+    	var image = {
+    		url: "assets/img/MapMarkerHQ.png",
+    		size: new google.maps.Size(20, 32),
+    	}
 		  $.get(url, function (data) {
 		    $(data).find("entry").each(function(){
 		    	var marker = new google.maps.Marker({
+		    		icon: image
 		    		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
 		    	});
 
-		  		marker.setIcon("assets/img/MapMarkerHQ.png"); 
+		  		//marker.setIcon("assets/img/MapMarkerHQ.png"); 
 		    	var infowindow = new google.maps.InfoWindow({
 						maxWidth: infoWidth,
 						content:'<div id="content">'+
