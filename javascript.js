@@ -83,7 +83,7 @@ $(document).ready(function () {
 		    		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
 		    		icon: new google.maps.MarkerImage(
 		    			"assets/img/MapMarkerHQ.png",
-		    			new google.maps.Size(40, 64),
+		    			new google.maps.Size(207, 358),
       			  new google.maps.Point(0,0), // offset within the scaled sprite
      		 		  new google.maps.Point(0,0), // anchor point is half of the desired size
  					    new google.maps.Size(40,64) // s
