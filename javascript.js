@@ -79,7 +79,7 @@ $(document).ready(function () {
 		    		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
 		    	});
 
-		  		marker.setIcon("assets/img/MapMarker.png"); 
+		  		marker.setIcon("assets/img/MapMarkerHQ.png"); 
 		    	var infowindow = new google.maps.InfoWindow({
 						maxWidth: infoWidth,
 						content:'<div id="content">'+
