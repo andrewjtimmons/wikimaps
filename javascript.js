@@ -85,7 +85,7 @@ $(document).ready(function () {
 						content:'<div id="content">'+
 				      '<div id="siteNotice">'+
 				      '</div>'+
-				      '<h1 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h1>'+
+				      '<h2 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h2>'+
 				      '<div id="bodyContent">'+
 				      '<p>'+
 				      $(this).find("summary").text()+
@@ -100,7 +100,7 @@ $(document).ready(function () {
 
 					google.maps.event.addListener(marker, 'click', function() {
 						if (currentInfoWindow) currentInfoWindow.close();
-						infowindow.maxWidth=window.innerWidth*.9;
+						infowindow.maxWidth=window.innerWidth*.85;
 						infowindow.open(map,marker);
 						currentInfoWindow = infowindow;
 					});
