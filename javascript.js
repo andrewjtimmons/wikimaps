@@ -120,12 +120,9 @@ $(document).ready(function () {
 				});	
 
 				google.maps.event.addListener(marker, 'click', function() {
-					if (currentInfoWindow) {
-						currentInfoWindow.close();
-					}
+					if (currentInfoWindow) currentInfoWindow.close();
 					infowindow.open(map,marker);
 					currentInfoWindow = infowindow;
-					
 	      	marker.set("id", -InfoWindowCount)
 	      	marker.setMap(map);
 	      	markerIcons.push(marker)
