@@ -80,7 +80,7 @@ $(document).ready(function () {
 		  $.get(url, function (data) {
 		    $(data).find("entry").each(function(){
 		    	var marker = new google.maps.Marker({
-		    		icon: image
+		    		icon: image,
 		    		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
 		    	});
 
