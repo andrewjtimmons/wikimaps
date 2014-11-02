@@ -1,35 +1,12 @@
 
 var currentInfoWindow;
 var map;
-//var markers = []
-//var markerIcons = []
 
 $(document).ready(function () {
 	var initialLocation;
 	var siberia = new google.maps.LatLng(60, 105);
 	var newyork = new google.maps.LatLng(40.773637, -73.970350);
 	var browserSupportFlag =  new Boolean();
-	var InfoWindowCount = 0  
-
-	//check if a marker already exist
-	// function checkMarkers(title){
-	// 	for (i = markers.length; i--;)
-	// 		if (markers[i].title == title)
-	// 			return true;
-	// 	addMarker(title)
-	// 	return false;
-	// }
-
-	// //generates a new marker in the local array
-	// function Marker(title){
-	// 	this.title = title
-	// }
-	// //make a new marker and add to local array
-	// function addMarker(title){
-	// 	var marker = new Marker(title)
-	// 	markers.push(marker)
-	// 	return
-	// }
 
 	function initialize() {
 		//this function builds the map
@@ -91,11 +68,10 @@ $(document).ready(function () {
 	}
 
 	function writeMarker() {
-
 		c =  map.getCenter();
-	 	var lat = c.k;
-	 	var lng = c.B;
-	 	var url = 'http://api.geonames.org/findNearbyWikipedia?lat='+ lat +'&lng='+ lng +'&maxRows=10&username=andyjt';
+	 	var lat = map.getCenter().k;
+	 	var lng = map.getCenter().B;
+	 	var url = 'http://api.geonames.org/findNearbyWikipedia?lat='+lat+'&lng='+lng+'&maxRows=10&username=andyjt';
 	  $.get(url, function (data) {
 	    $(data).find("entry").each(function(){
       	var marker = new google.maps.Marker({
@@ -106,19 +82,19 @@ $(document).ready(function () {
       	var infowindow = new google.maps.InfoWindow({
   				maxWidth: infoWidth,
   				content:'<div id="content">'+
-						      '<div id="siteNotice">'+
-						      '</div>'+
-						      '<h1 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h1>'+
-						      '<div id="bodyContent">'+
-						      '<p>'+
-						      $(this).find("summary").text()+
-						      '<a href="'+$(this).find("wikipediaUrl").text()+'" target="_blank">'+
-						      "Wikipedia Entry"+
-						      '</a>'+
-						      '</p>'+
-						      '</div>'+		
-						      '</div>'+
-						      '</div>'
+			      '<div id="siteNotice">'+
+			      '</div>'+
+			      '<h1 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h1>'+
+			      '<div id="bodyContent">'+
+			      '<p>'+
+			      $(this).find("summary").text()+
+			      '<a href="'+$(this).find("wikipediaUrl").text()+'" target="_blank">'+
+			      "Wikipedia Entry"+
+			      '</a>'+
+			      '</p>'+
+			      '</div>'+		
+			      '</div>'+
+			      '</div>'
 				});	
 
 				google.maps.event.addListener(marker, 'click', function() {
