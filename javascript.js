@@ -69,43 +69,44 @@ $(document).ready(function () {
 
 	function writeMarker() {
 		c =  map.getCenter();
-	 	var lat = map.getCenter().k;
-	 	console.log(lat)
-	 	var lng = map.getCenter().B;
-	 	var url = 'http://api.geonames.org/findNearbyWikipedia?lat='+lat+'&lng='+lng+'&maxRows=10&username=andyjt';
-	  $.get(url, function (data) {
-	    $(data).find("entry").each(function(){
-      	var marker = new google.maps.Marker({
-      		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
-      	});
+	 	if (c) {
+		 	var lat = c.k;
+		 	var lng = c.B;
+		 	var url = 'http://api.geonames.org/findNearbyWikipedia?lat='+lat+'&lng='+lng+'&maxRows=10&username=andyjt';
+		  $.get(url, function (data) {
+		    $(data).find("entry").each(function(){
+		    	var marker = new google.maps.Marker({
+		    		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
+		    	});
 
-    		marker.setIcon("assets/img/MapMarker.png"); 
-      	var infowindow = new google.maps.InfoWindow({
-  				maxWidth: infoWidth,
-  				content:'<div id="content">'+
-			      '<div id="siteNotice">'+
-			      '</div>'+
-			      '<h1 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h1>'+
-			      '<div id="bodyContent">'+
-			      '<p>'+
-			      $(this).find("summary").text()+
-			      '<a href="'+$(this).find("wikipediaUrl").text()+'" target="_blank">'+
-			      "Wikipedia Entry"+
-			      '</a>'+
-			      '</p>'+
-			      '</div>'+		
-			      '</div>'+
-			      '</div>'
-				});	
+		  		marker.setIcon("assets/img/MapMarker.png"); 
+		    	var infowindow = new google.maps.InfoWindow({
+						maxWidth: infoWidth,
+						content:'<div id="content">'+
+				      '<div id="siteNotice">'+
+				      '</div>'+
+				      '<h1 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h1>'+
+				      '<div id="bodyContent">'+
+				      '<p>'+
+				      $(this).find("summary").text()+
+				      '<a href="'+$(this).find("wikipediaUrl").text()+'" target="_blank">'+
+				      "Wikipedia Entry"+
+				      '</a>'+
+				      '</p>'+
+				      '</div>'+		
+				      '</div>'+
+				      '</div>'
+					});	
 
-				google.maps.event.addListener(marker, 'click', function() {
-					if (currentInfoWindow) currentInfoWindow.close();
-					infowindow.open(map,marker);
-					currentInfoWindow = infowindow;
-				});
-      	marker.setMap(map);
-	    });
-	  },"xml");
+					google.maps.event.addListener(marker, 'click', function() {
+						if (currentInfoWindow) currentInfoWindow.close();
+						infowindow.open(map,marker);
+						currentInfoWindow = infowindow;
+					});
+		    	marker.setMap(map);
+		    });
+		  },"xml");
+		}
 	}
  		
   google.maps.event.addDomListener(window, 'load', initialize);
