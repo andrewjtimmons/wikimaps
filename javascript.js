@@ -122,17 +122,17 @@ $(document).ready(function () {
 					});	
 
 					google.maps.event.addListener(marker, 'click', function() {
-					if (currentInfoWindow) currentInfoWindow.close();
-					infowindow.open(map,marker);
-					currentInfoWindow = infowindow;
-					$("#"+InfoWindowCount).click(function(){
-						alert('hi')
-						// if (marker.getIcon() === "/assets/MapMarker.png") {
-						// 	marker.setIcon("/assets/MapMarker1.png"); 
-						// }else{
-						// 	marker.setIcon("/assets/MapMarker.png"); 
-						// }
-	  				});
+						if (currentInfoWindow) currentInfoWindow.close();
+						infowindow.open(map,marker);
+						currentInfoWindow = infowindow;
+						// $("#"+InfoWindowCount).click(function(){
+						// 	alert('hi')
+						// 	// if (marker.getIcon() === "/assets/MapMarker.png") {
+						// 	// 	marker.setIcon("/assets/MapMarker1.png"); 
+						// 	// }else{
+						// 	// 	marker.setIcon("/assets/MapMarker.png"); 
+						// 	// }
+		  		// 		});
 					});
 	      	//marker.set("id", -InfoWindowCount)
 	      	marker.setMap(map);
