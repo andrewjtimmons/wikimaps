@@ -101,45 +101,36 @@ $(document).ready(function () {
 	  $.get(url, function (data) {
 	    //iterate through the data
 	    $(data).find("entry").each(function(){
-	    	//check to see if the marker was already made
-	    	if (checkMarkers($(this).find("title").text()) === false) {
-	      	var marker = new google.maps.Marker({
-	      		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
-	      	});
+      	var marker = new google.maps.Marker({
+      		position: new google.maps.LatLng($(this).find("lat").text(), $(this).find("lng").text()),
+      	});
 
-	    		marker.setIcon("assets/img/MapMarker.png"); 
-	      	var infowindow = new google.maps.InfoWindow({
-	  				maxWidth: infoWidth,
-	  				content:'<div id="content">'+
-							      '<div id="siteNotice">'+
-							      '</div>'+
-							      '<h1 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h1>'+
-							      '<div id="bodyContent">'+
-							      '<p>'+$(this).find("summary").text()+' <a href="'+$(this).find("wikipediaUrl").text()+'" target="_blank">Wikipedia Entry</a></p>'+
-							      '</div>'+		
-							      '</div>'+
-							      '</div>'
-					});	
+    		marker.setIcon("assets/img/MapMarker.png"); 
+      	var infowindow = new google.maps.InfoWindow({
+  				maxWidth: infoWidth,
+  				content:'<div id="content">'+
+						      '<div id="siteNotice">'+
+						      '</div>'+
+						      '<h1 id="firstHeading" class="firstHeading">'+$(this).find("title").text()+'</h1>'+
+						      '<div id="bodyContent">'+
+						      '<p>'+$(this).find("summary").text()+' <a href="'+$(this).find("wikipediaUrl").text()+'" target="_blank">Wikipedia Entry</a></p>'+
+						      '</div>'+		
+						      '</div>'+
+						      '</div>'
+				});	
 
-					google.maps.event.addListener(marker, 'click', function() {
-					if (currentInfoWindow) currentInfoWindow.close();
+				google.maps.event.addListener(marker, 'click', function() {
+					if (currentInfoWindow) {
+						currentInfoWindow.close();
+					}
 					infowindow.open(map,marker);
 					currentInfoWindow = infowindow;
-					$("#"+InfoWindowCount).click(function(){
-						alert('hi')
-						// if (marker.getIcon() === "/assets/MapMarker.png") {
-						// 	marker.setIcon("/assets/MapMarker1.png"); 
-						// }else{
-						// 	marker.setIcon("/assets/MapMarker.png"); 
-						// }
-	  				});
-					});
+					
 	      	marker.set("id", -InfoWindowCount)
 	      	marker.setMap(map);
 	      	markerIcons.push(marker)
 	      	InfoWindowCount += 1
-	      }
-	    });
+	    	});
 	  },"xml");
 	}
  		
