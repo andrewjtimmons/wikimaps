@@ -72,7 +72,7 @@ $(document).ready(function () {
         if (c) {
             var lat = c.lat();
             var lng = c.lng();
-            var url = 'https://api.geonames.org/findNearbyWikipedia?lat='+lat+'&lng='+lng+'&maxRows=10&username=andyjt';
+            var url = 'http://api.geonames.org/findNearbyWikipedia?lat='+lat+'&lng='+lng+'&maxRows=10&username=andyjt';
           $.get(url, function (data) {
             $(data).find("entry").each(function(){
                 var marker = new google.maps.Marker({
